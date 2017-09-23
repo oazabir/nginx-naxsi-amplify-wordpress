@@ -1,0 +1,1 @@
+# nginx-naxsi-amplify-wordpress
