@@ -1,0 +1,8 @@
+export IMAGE_NAME="nginx-naxsi-amplify-wordpress"
+export CONTAINER_NAME="nginx-naxsi-amplify-wordpress"
+export SITE_NAME="quranerkotha.com"
+export EMAIL="omaralzabir@gmail.com"
+export AMPLIFY_IMAGENAME="quranerkotha.com"
+export API_KEY="put-your-own-api-key-here"
+export IP="127.0.0.1"
+export PORT="53000"

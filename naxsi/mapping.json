@@ -1,0 +1,64 @@
+{
+        "properties" : {
+          "comments" : {
+            "type" : "text",
+            "fielddata": true
+          },
+          "content" : {
+            "type" : "text",
+            "fielddata": true
+          },
+          "coords" : {
+            "type" : "float"
+          },
+          "country" : {
+            "type" : "text",
+            "fielddata": true
+          },
+          "date" : {
+            "type" : "date"
+          },
+          "id" : {
+            "type" : "text",
+            "fielddata": true
+          },
+          "index" : {
+            "type" : "object"
+          },
+          "ip" : {
+            "type" : "text",
+            "fielddata": true
+          },
+          "server" : {
+"type" : "text",
+            "fielddata": true
+          },
+          "index" : {
+            "type" : "object"
+          },
+          "ip" : {
+            "type" : "text",
+            "fielddata": true
+          },
+          "server" : {
+            "type" : "text",
+            "fielddata": true
+          },
+          "uri" : {
+            "type" : "text",
+            "fielddata": true
+          },
+          "var_name" : {
+            "type" : "text",
+            "fielddata": true
+          },
+          "whitelisted" : {
+            "type" : "text",
+            "fielddata": true
+          },
+          "zone" : {
+            "type" : "text",
+            "fielddata": true
+          }
+        }
+}
