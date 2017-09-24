@@ -1,12 +1,13 @@
-bash +x setenv.sh
+set -v
+. setenv.sh
 
 mkdir -p www/$SITE_NAME
 
-sed -i "s/{SITE_NAME}/$SITE_NAME" conf.d/default.conf
-sed -i "s/{IP}/$SITE_NAME" conf.d/upstream.conf
-sed -i "s/{PORT}/$SITE_NAME" conf.d/upstream.conf
+sed "s/{SITE_NAME}/$SITE_NAME/g" conf.d/default.conf.template > conf.d/default.conf
+sed "s/{IP}/$SITE_NAME/g" conf.d/upstream.conf.template > conf.d/upstream.conf
+sed "s/{PORT}/$SITE_NAME/g" conf.d/upstream.conf.template > conf.d/upstream.conf
 
-if [[ ! -f conf.d/.htpasswd ]]; 
+if ! test -f conf.d/.htpasswd; 
 then 
     echo "Enter the credential for additional HTTP Basic Authentication."
     echo "This must not be the same as Wordpress admin username and password."

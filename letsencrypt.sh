@@ -1,4 +1,4 @@
-bash +x setenv.sh
+. setenv.sh
 
 [ ! -d "www/$SITE_NAME" ] && mkdir -p "www/$SITE_NAME"
 
@@ -17,3 +17,5 @@ sudo docker run -it --rm --name letsencrypt \
  --renew-by-default \
  -d "$SITE_NAME" \
  -m $EMAIL
+
+echo "Don't forget to uncomment the #ssl_certificate entries in nginx conf file."
