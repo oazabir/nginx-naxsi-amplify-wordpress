@@ -27,11 +27,7 @@ server {
 	    include include/wordpress-proxy.conf;
     }
 
-     YOU SHOULD DEFINITELY TURN THIS ON TO PROTECT WORDPRESS
-     FROM MANY COMMON ATTACKS. 
-     MAKE SURE YOU USE htpasswd COMMAND TO GENERATE A USER AND PASSWORD
-     THAT BROWSER WILL PROMPT FOR HTTP BASIC AUTHENTICATION
-    location ~* /wp-admin/.* {
+    location ~* /(wp-admin|wp-includes)/.* {
         auth_basic "Authorization Required";
         auth_basic_user_file conf.d/.htpasswd;
 	    include include/wordpress-proxy.conf;

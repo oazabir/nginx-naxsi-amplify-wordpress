@@ -21,14 +21,16 @@ docker run -it --rm \
 
 docker stop $IMAGE_NAME \
     && docker rm $IMAGE_NAME \
-    && rm /var/log/nginx/*.log \
-    && docker run -d \
-            --name $CONTAINER_NAME \
-            --restart unless-stopped \
-            $PARAMS \
-        $IMAGE_NAME \
+    
+rm /var/log/nginx/*.log 
+
+docker run -d \
+    --name $CONTAINER_NAME \
+    --restart unless-stopped \
+    $PARAMS \
+    $IMAGE_NAME \
     && sleep 3 \
-    && docker logs eps-nginx \
+    && docker logs $CONTAINER_NAME \
     && sleep 2 \
     && tail -f /var/log/nginx/access.log /var/log/nginx/error.log
     

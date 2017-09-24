@@ -4,8 +4,8 @@ set -v
 mkdir -p www/$SITE_NAME
 
 sed "s/{SITE_NAME}/$SITE_NAME/g" conf.d/default.conf.template > conf.d/default.conf
-sed "s/{IP}/$SITE_NAME/g" conf.d/upstream.conf.template > conf.d/upstream.conf
-sed "s/{PORT}/$SITE_NAME/g" conf.d/upstream.conf.template > conf.d/upstream.conf
+sed "s/{HOST_IP}/$HOST_IP/g" conf.d/upstream.conf.template > conf.d/upstream.conf
+sed -i "s/{HOST_PORT}/$HOST_PORT/g" conf.d/upstream.conf
 
 if ! test -f conf.d/.htpasswd; 
 then 
