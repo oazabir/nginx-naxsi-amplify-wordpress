@@ -1,0 +1,4 @@
+
+BasicRule wl:1000 "mz:URL|$URL:/remote.php/dav/.*$";
+BasicRule wl:2 "mz:BODY";
+BasicRule wl:11 "mz:BODY";

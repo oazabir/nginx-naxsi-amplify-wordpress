@@ -3,9 +3,11 @@ set -v
 
 mkdir -p www/$SITE_NAME
 
-sed "s/{SITE_NAME}/$SITE_NAME/g" conf.d/default.conf.template > conf.d/default.conf
-sed "s/{HOST_IP}/$HOST_IP/g" conf.d/upstream.conf.template > conf.d/upstream.conf
-sed -i "s/{HOST_PORT}/$HOST_PORT/g" conf.d/upstream.conf
+sed "s/{SITE_NAME}/$SITE_NAME/g" conf.d/default.conf.template > conf.d/$SITE_NAME.conf
+sed -i "s/{SERVER_NAMES}/$SERVER_NAMES/g" conf.d/$SITE_NAME.conf
+sed "s/{HOST_IP}/$HOST_IP/g" conf.d/upstream.conf.template > conf.d/$SITE_NAME.upstream.conf
+sed -i "s/{HOST_PORT}/$HOST_PORT/g" conf.d/$SITE_NAME.upstream.conf
+sed -i "s/{SITE_NAME}/$SITE_NAME/g" conf.d/$SITE_NAME.upstream.conf
 
 if ! test -f conf.d/.htpasswd; 
 then 

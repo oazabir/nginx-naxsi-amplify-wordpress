@@ -1,3 +1,4 @@
 conf.d/*.conf
 conf.d/.htpasswd
 ssl/*
+.env

@@ -1,5 +1,5 @@
 
-upstream wordpress {
+upstream {SITE_NAME}-upstream {
     server {HOST_IP}:{HOST_PORT};
 #    server backupweb:5300;
 }

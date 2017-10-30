@@ -1,7 +1,7 @@
 
 server {
     listen       80;
-    server_name  _;
+    server_name  {SERVER_NAMES};
 
     location /.well-known/ {
         default_type "text/plain";
@@ -15,7 +15,8 @@ server {
 
 server {
     listen 443 ssl;
-    server_name  _;
+    server_name  {SERVER_NAMES};
+    set $PROXY_DOMAIN_OR_IP {SITE_NAME}-upstream;
 
     #ssl_certificate ssl/live/{SITE_NAME}/fullchain.pem; # managed by Certbot
     #ssl_certificate_key ssl/live/{SITE_NAME}/privkey.pem; # managed by Certbot
@@ -24,18 +25,23 @@ server {
     include include/security-headers.conf;
 
     location / {
-	    include include/wordpress-proxy.conf;
+        include include/wordpress-proxy.conf;
+    }
+    # rule for owncloud
+    location ~* /remote.php/dav/.*$ {
+        client_max_body_size 100m;
+        include include/proxy_common.conf;
     }
 
     location ~* /(wp-admin|wp-includes)/.* {
         auth_basic "Authorization Required";
         auth_basic_user_file conf.d/.htpasswd;
-	    include include/wordpress-proxy.conf;
+        include include/wordpress-proxy.conf;
     }
     location /wp-login.php {
         auth_basic "Authorization Required";
         auth_basic_user_file conf.d/.htpasswd;
-	    include include/wordpress-proxy.conf;
+        include include/wordpress-proxy.conf;
     }
     
 
